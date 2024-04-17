@@ -6,7 +6,7 @@ import joblib
 from sklearn.tree import DecisionTreeClassifier
 
 #loding up the classification model we created
-model = DecisionTreeClassifier (max_depth=20, min_samples_leaf=5, random_state=0)
+model = DecisionTreeClassifier(max_depth=20, min_samples_leaf=5, random_state=0)
 model = joblib.load('finalized_model.joblib')
 
 #caching the model for faster loading
@@ -21,7 +21,7 @@ def prediction(Buying,Maint,Doors,Persons,Lug_boots,Safety):
     safety = 2
   elif Safety == 'low':
     safety = 3
-  df = pd.DataFrame([Buying,Maint,Doors,Persons,Lug_boots,safety],
+  df = pd.DataFrame([[Buying,Maint,Doors,Persons,Lug_boots,safety]],
                     columns=['Buying','Maint','Doors','Persons','Lug_boots','safety'])
   result=model.predict([[Buying,Maint,Doors,Persons,Lug_boots,safety]])
   return result
@@ -43,9 +43,4 @@ Safety = st.radio('safety:',('med','high','low'))
 
 if st.button('Submit_Cars_Infos'):
   cal_eval = prediction(Buying,Maint,Doors,Persons,Lug_boot,Safety)
-  st.success(f'The Evaluation of Car : {cal_eval[0]}')
-
-
-
-
-
+  st.success(f'The Evaluation of Car : {cal_eval[0]}')
