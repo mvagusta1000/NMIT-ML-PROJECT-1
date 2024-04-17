@@ -6,7 +6,7 @@ import joblib
 from sklearn.tree import DecisionTreeClassifier
 
 #loding up the classification model we created
-model = DecisionTreeClassifier(max_depth=20, min_samples_leaf=5, random_state=0)
+model = DecisionTreeClassifier (max_depth=20, min_samples_leaf=5, random_state=0)
 model = joblib.load('finalized_model.joblib')
 
 #caching the model for faster loading
