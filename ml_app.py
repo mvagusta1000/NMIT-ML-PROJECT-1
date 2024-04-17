@@ -23,8 +23,8 @@ def prediction(Buying,Maint,Doors,Persons,Lug_boots,Safety):
     safety = 3
   df = pd.DataFrame([Buying,Maint,Doors,Persons,Lug_boots,safety],
                     columns=['Buying','Maint','Doors','Persons','Lug_boots','safety'])
-  prediction=model.predict([[Buying,Maint,Doors,Persons,Lug_boots,safety]])
-  return prediction
+  result=model.predict([[Buying,Maint,Doors,Persons,Lug_boots,safety]])
+  return result
 
 st.title('car evaluation Classification')
 st.image("""https://www.hindustantimes.com/ht-img/img/2024/04/17/550x309/CRICKET-IND-AFG-T20-62_1709207374217_1713331028912.jpg""")
